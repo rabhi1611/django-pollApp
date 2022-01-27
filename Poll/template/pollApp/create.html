@@ -1,0 +1,23 @@
+{% extends 'pollApp/base.html' %}
+
+{% load crispy_forms_tags %}
+{% load widget_tweaks %}
+{% block content %}
+
+
+<form method="post">
+    {% csrf_token %}
+    <p>Question?</p>
+    {{form.question}}
+    <p>Option 1</p>
+    {{form.option_1}}
+    <p>Option 2</p>
+    {{form.option_2}}
+    <p>Option 3</p>
+    {{form.option_3}}
+    <br>
+    <br>
+    <button type="submit" class="btn btn-success">Save</button>
+  </form>
+  <a href="{% url 'home' %}">home</a>
+{% endblock %}
