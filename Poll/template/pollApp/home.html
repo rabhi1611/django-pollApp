@@ -1,16 +1,15 @@
 {% extends 'pollApp/base.html' %}
-
-{% load crispy_forms_tags %}
-
 {% block content %}
-<a href="{% url 'create'%}" class="">Create Poll</a>
-<ul class="list-group">
-  {% for i in poll %}
-  <li class="list-group-items">
-    {{i.question}}
-    <a href="{% url 'vote' i.id %}" class="">Vote</a>
-    <a href="{% url 'view' i.id %}" class="">View</a>
-  </li>
-  {% endfor %}
-</ul>
+<table class="table">
+  <tbody>
+    {% for i in poll %}
+    <tr>
+      <th scope="row">{{i.question}}</th>
+      <td></td>
+      <td><a href="{% url 'vote' i.id %}">Vote</a></td>
+      <td><a href="{% url 'view' i.id %}">view</a></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
 {% endblock %}

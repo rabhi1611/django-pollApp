@@ -1,13 +1,33 @@
 {% extends 'pollApp/base.html' %}
 
-{% load crispy_forms_tags %}
-
 {% block content %}
-    <h3>{{poll.question}}</h3>
-    <br>
-    <p>{{poll.option_1}} ---- {{poll.option_1_count}}</p>
-    <p>{{poll.option_2}} ---- {{poll.option_2_count}}</p>
-    <p>{{poll.option_3}} ---- {{poll.option_3_count}}</p>
-    <p>total votes : {{poll.total}}</p>
-    <a href="{% url 'home' %}">home</a>
+
+    <table class="table">
+        <thead>
+            <th scope="col">{{poll.question}}</th>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">{{poll.option_1}}</th>
+            <td>{{poll.option_1_count}}</td>
+          </tr>
+
+          <tr>
+            <th scope="row">{{poll.option_2}}</th>
+            <td>{{poll.option_2_count}}</td>
+          </tr>
+
+          <tr>
+            <th scope="row">{{poll.option_3}}</th>
+            <td>{{poll.option_3_count}}</td>
+          </tr>
+
+          <tr>
+            <th scope="row">total</th>
+            <td>{{poll.total}}</td>
+          </tr>
+        </tbody>
+      </table>
+
+  
 {% endblock %}
